@@ -26,26 +26,11 @@ class Factory
 	{
 		if (class_exists($class = __NAMESPACE__ . '\\' . ucfirst($class))) {
 
-            $reflection = new \ReflectionClass($class);
-//            $arguments = array_shift($args);
+            // modify return new $class(...$args);
+		    $reflection = new \ReflectionClass($class);
             self::$instance = $reflection->newInstanceArgs($args);
-//            call_user_func_array(
-//                array($reflection, 'Factor'),
-//                $arguments
-//            );
-
             return self::$instance;
-
-
-//            $reflect = new $class($args[0]);
-//            $arguments = array_shift($args);
-//            // TODO check if $functionName exists, otherwise we will get a loop
-//            call_user_func_array(
-//                array($reflect, $class),
-//                $arguments
-//            );
-//            return $reflect;
-
+            // modify return new $class(...$args);
 //			return new $class(...$args);
 		}
 

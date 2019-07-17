@@ -233,35 +233,23 @@ class Sitemap implements SitemapIndexInterface
 
 				throw new SitemapException("Sitemap name is required for {$builder}");
 			}
-//            echo $this->domain."====".$args[0];
-//			var_dump($args[0]);
-//			exit;
-//
-//            $rConstruct = new \ReflectionMethod($builder, '__construct');
-//            $numParams      = $rConstruct->getNumberOfParameters();
-//            $arr = $args[0];
-//
-//            $tempArray = array_fill(0, $numParams, $this->domain);
-//            $arr    = ($arr + $tempArray);
-//
-//
-//            $reflection = new \ReflectionClass($builder);
-//            self::$instance = $reflection->newInstanceArgs($arr);
 
+			// modify return $this->build(new $builder($this->domain, $args[0]), ...$args);
+            $rConstruct = new \ReflectionMethod($builder, '__construct');
+            $numParams      = $rConstruct->getNumberOfParameters();
 
-//            $reflection = new \ReflectionClass($builder);
-//			$arr = $args[0];
-//            array_unshift($arr, $this->domain);
-//            self::$instance = $reflection->newInstanceArgs($arr);
+            $tempArray = array_fill(0, $numParams, '');
+            $arr[0]= $this->domain;
+            $arr[1]= $args[0];
 
-//            $reflection = new \ReflectionClass($builder($this->domain, $args[0]));
-//            self::$instance = $reflection->newInstanceArgs($args);
-//            $arr2 = $args;
-//            array_unshift($arr2, self::$instance);
-//            return call_user_func_array(array($this, "build"), $arr2);
+            $reflection = new \ReflectionClass($builder);
+            self::$instance = $reflection->newInstanceArgs($arr);
 
+            array_unshift($args, self::$instance);
+            return call_user_func_array(array($this, "build"), $args);
+            // modify return $this->build(new $builder($this->domain, $args[0]), ...$args);
 
-			return $this->build(new $builder($this->domain, $args[0]), ...$args);
+//			return $this->build(new $builder($this->domain, $args[0]), ...$args);
 		}
 
 		throw new SitemapException("Sitemap builder {$builder} not exists");

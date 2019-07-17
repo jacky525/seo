@@ -153,8 +153,10 @@ class Schema implements SchemaInterface
 	 */
 	public function __call( $param,  $value)
 	{
-        array_unshift($value, $param);
+        // modify return $this->set($param, ...$value);
+	    array_unshift($value, $param);
         return call_user_func_array(array($this, "set"), $value);
+        // modify return $this->set($param, ...$value);
 
 //	    return $this->set($param, ...$value);
 	}
