@@ -23,6 +23,11 @@
 			"email": "mohamed@elbahja.me",
 			"homepage": "https://elbahja.me",
 			"role": "Developer"
+		},
+		{
+			"name": "jacky",
+			"email": "jackey525@gmail.com",
+			"role": "Developer"
 		}
 	],
 	"require": 
