@@ -72,8 +72,8 @@ class NewsBuilder extends SitemapBuilder
 	 */
 	public function news(array $options): SitemapBuilderInterface
 	{
-		$options['name'] = $options['name'] ?? $this->publication['name'];
-		$options['language'] = $options['language'] ?? $this->publication['lang'];
+		$options['name'] = isset($options['name']) ?$options['name'] : $this->publication['name'];
+		$options['language'] = isset($options['language']) ?$options['language']: $this->publication['lang'];
 
 		if (isset($options['name'], $options['language'], $options['publication_date'], $options['title']) === false) {
 

@@ -42,7 +42,7 @@ class Schema implements SchemaInterface
 	 * @param SchemaInterface|null $parent
 	 * @param SchemaInterface|null $root
 	 */
-	public function __construct(string $type, array $data = [], ?SchemaInterface $parent = null, ?SchemaInterface $root = null) 
+	public function __construct( $type,  $data = [],  $parent = null,  $root = null)
 	{
 		$this->data = array_merge($this->data, $data);
 		$this->data['@type'] = ucfirst($type);
@@ -63,7 +63,7 @@ class Schema implements SchemaInterface
 	 * @param  array|scalar|SchemaInterface $value
 	 * @return SchemaInterface
 	 */
-	public function set(string $param, $value): SchemaInterface
+	public function set( $param, $value)
 	{
 		$this->data[$param] = $value;
 		return $this;
@@ -76,9 +76,9 @@ class Schema implements SchemaInterface
 	 * @param array  $data
 	 * @return SchemaInterface The child object
 	 */
-	public function addChild(string $name, array $data = []): SchemaInterface
+	public function addChild( $name,  $data = [])
 	{
-		$this->set($name, $child = new static($name, $data, $this, $this->root ?? $this));
+		$this->set($name, $child = new static($name, $data, $this, isset($this->root) ? $this->root :$this));
 	
 		return $child;
 	}
@@ -88,7 +88,7 @@ class Schema implements SchemaInterface
 	 *
 	 * @return array
 	 */
-	public function toArray(): array
+	public function toArray()
 	{
 		$data = [];
 
@@ -112,7 +112,7 @@ class Schema implements SchemaInterface
 	 *
 	 * @return null|SchemaInterface
 	 */
-	public function getParent(): ?SchemaInterface
+	public function getParent()
 	{
 		return $this->parent;
 	}
@@ -122,7 +122,7 @@ class Schema implements SchemaInterface
 	 *
 	 * @return null|SchemaInterface
 	 */
-	public function getRoot(): ?SchemaInterface
+	public function getRoot()
 	{
 		return $this->root;
 	}
@@ -142,16 +142,16 @@ class Schema implements SchemaInterface
 	 *
 	 * @return string
 	 */
-	public function __toString(): string
+	public function __toString()
 	{
-		return '<script type="application/ld+json">'. json_encode($this->root ?? $this) .'</script>';
+		return '<script type="application/ld+json">'. json_encode(isset($this->root) ?$this->root: $this) .'</script>';
 	}
 
 	/**
 	 * @see {@method set}
 	 * @return SchemaInterface
 	 */
-	public function __call(string $param, array $value): SchemaInterface
+	public function __call( $param,  $value)
 	{
 		return $this->set($param, ...$value);
 	}
@@ -162,7 +162,7 @@ class Schema implements SchemaInterface
 	 * @param  string $name
 	 * @return SchemaInterface
 	 */
-	public function __get(string $name): SchemaInterface
+	public function __get( $name)
 	{
 		return $this->addChild($name);
 	}

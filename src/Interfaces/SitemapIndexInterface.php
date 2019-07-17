@@ -10,17 +10,17 @@ namespace Melbahja\Seo\Interfaces;
  */
 interface SitemapIndexInterface extends SitemapInterface
 {
-	public function __construct(string $domain, array $options = null);
+	public function __construct( $domain,  $options = null);
 
-	public function setOptions(array $options): SitemapIndexInterface;
+	public function setOptions( $options);
 
-	public function getOptions(): array;
+	public function getOptions();
 
-	public function saveTo(string $path): bool;
+	public function saveTo( $path);
 
-	public function save(): bool;
+	public function save();
 
-	public function build(SitemapBuilderInterface $builder, array $options, callable $func): SitemapIndexInterface;
+	public function build( $builder,  $options,  $func);
 
-	public function __call(string $builder, array $args): SitemapIndexInterface;	
+	public function __call( $builder,  $args);
 }

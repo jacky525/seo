@@ -19,7 +19,7 @@ class Factory
 	 * @param  array  $args
 	 * @return SeoInterface
 	 */
-	public static function __callStatic(string $class, array $args): SeoInterface
+	public static function __callStatic( $class,  $args)
 	{
 		if (class_exists($class = __NAMESPACE__ . '\\' . ucfirst($class))) {
 

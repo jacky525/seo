@@ -49,7 +49,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param string $domain The domain name only
 	 * @param array  $options
 	 */
-	public function __construct(string $domain, array $options = null)
+	public function __construct( $domain,  $options = null)
 	{
 		$this->domain = $domain;
 
@@ -65,7 +65,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param array $options
 	 * @return SitemapIndexInterface
 	 */
-	public function setOptions(array $options): SitemapIndexInterface
+	public function setOptions( $options)
 	{
 		$this->options = array_merge($this->options, $options);
 
@@ -77,7 +77,7 @@ class Sitemap implements SitemapIndexInterface
 	 *
 	 * @return array
 	 */
-	public function getOptions(): array
+	public function getOptions()
 	{
 		return $this->options;
 	}
@@ -88,7 +88,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param string $path
 	 * @return SitemapIndexInterface
 	 */
-	public function setSavePath(string $path): SitemapIndexInterface
+	public function setSavePath( $path)
 	{
 		$this->options['save_path'] = $path;
 		return $this;
@@ -99,7 +99,7 @@ class Sitemap implements SitemapIndexInterface
 	 *
 	 * @return null|string
 	 */
-	public function getSavePath(): ?string
+	public function getSavePath()
 	{
 		return $this->options['save_path'];
 	}
@@ -110,7 +110,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param string $name
 	 * @return SitemapIndexInterface
 	 */
-	public function setIndexName(string $name): SitemapIndexInterface
+	public function setIndexName( $name)
 	{
 		$this->options['index_name'] = $name;
 		return $this;
@@ -121,7 +121,7 @@ class Sitemap implements SitemapIndexInterface
 	 *
 	 * @return string
 	 */
-	public function getIndexName(): string
+	public function getIndexName()
 	{
 		return $this->options['index_name'];
 	}
@@ -132,7 +132,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param string $url
 	 * @return SitemapIndexInterface
 	 */
-	public function setSitemapsUrl(string $url): SitemapIndexInterface
+	public function setSitemapsUrl( $url)
 	{
 		$this->options['sitemaps_url'] = $url;
 		return $this;
@@ -143,7 +143,7 @@ class Sitemap implements SitemapIndexInterface
 	 *
 	 * @return null|string
 	 */
-	public function getSitemapsUrl(): ?string
+	public function getSitemapsUrl()
 	{
 		return $this->options['sitemaps_url'];
 	}
@@ -153,7 +153,7 @@ class Sitemap implements SitemapIndexInterface
 	 *
 	 * @return string
 	 */
-	public function getDomain(): string
+	public function getDomain()
 	{
 		return $this->domain;
 	}
@@ -164,10 +164,10 @@ class Sitemap implements SitemapIndexInterface
 	 * @param  string $path
 	 * @return bool
 	 */
-	public function saveTo(string $path): bool
+	public function saveTo( $path)
 	{
 		return SitemapIndex::build(
-			$this->options['index_name'], $path, ($this->options['sitemaps_url'] ?? $this->domain), $this->sitemaps
+			$this->options['index_name'], $path, (isset($this->options['sitemaps_url']) ? $this->options['sitemaps_url'] :$this->domain), $this->sitemaps
 		);
 	}
 
@@ -177,7 +177,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param  string $path
 	 * @return bool
 	 */
-	public function save(): bool
+	public function save()
 	{
 		if (is_string($this->options['save_path']) === false) {
 
@@ -196,7 +196,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param  callable $func
 	 * @return SitemapIndexInterface
 	 */
-	public function build(SitemapBuilderInterface $builder, array $options, callable $func): SitemapIndexInterface
+	public function build( $builder,  $options,  $func)
 	{
 		if (isset($this->sitemaps[$options['name']])) {
 
@@ -216,7 +216,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param  array  $args
 	 * @return SitemapIndexInterface
 	 */
-	public function __call(string $builder, array $args): SitemapIndexInterface
+	public function __call( $builder,  $args)
 	{
 		if (class_exists($builder = '\Melbahja\Seo\Sitemap\\' . ucfirst($builder) . 'Builder')) {
 
@@ -247,7 +247,7 @@ class Sitemap implements SitemapIndexInterface
 	 * @param SitemapBuilderInterface $builder
 	 * @return SitemapIndexInterface
 	 */
-	protected function setBuilder(string $name, SitemapBuilderInterface $builder): SitemapIndexInterface
+	protected function setBuilder( $name,  $builder)
 	{
 		$this->sitemaps[$name] = $builder->saveTemp();
 

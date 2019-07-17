@@ -27,19 +27,19 @@ interface SitemapBuilderInterface extends SeoInterface
 	 */
 	public const NEWS_NS = 'https://www.google.com/schemas/sitemap-news/0.9';
 
-	public function loc(string $path): SitemapBuilderInterface;
+	public function loc( $path);
 
-	public function lastMode($date): SitemapBuilderInterface;
+	public function lastMode($date);
 
-	public function image(string $imageUrl, array $options = []): SitemapBuilderInterface;
+	public function image( $imageUrl,  $options = []);
 
-	public function video(string $title, array $options = []): SitemapBuilderInterface;
+	public function video( $title,  $options = []);
 
-	public function changefreq(string $freq): SitemapBuilderInterface;
+	public function changefreq( $freq);
 
-	public function priority(string $priority): SitemapBuilderInterface;
+	public function priority( $priority);
 
-	public function saveTo(string $path): bool;
+	public function saveTo( $path);
 
-	public function saveTemp(): string;
+	public function saveTemp();
 }

@@ -10,13 +10,13 @@ namespace Melbahja\Seo\Interfaces;
  */
 interface MetaTagsInterface extends SeoInterface
 {
-	public function __construct(array $tags = []);
+	public function __construct($tags = []);
 
-	public function meta(string $name, string $value): MetaTagsInterface;
+	public function meta($name, $value);
 
-	public function push(string $name, array $attrs): MetaTagsInterface;
+	public function push($name, $attrs);
 
-	public function build(array $tags): string;
+	public function build($tags);
 
-	public function __toString(): string;
+	public function __toString();
 }

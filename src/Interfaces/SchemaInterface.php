@@ -12,20 +12,20 @@ interface SchemaInterface extends SeoInterface, \JsonSerializable
 {
 
 	public function __construct(
-		string $type, array $data = [], ?SchemaInterface $parent = null, ?SchemaInterface $root = null
+		$type, $data = [], $parent = null, $root = null
 	);
 
-	public function set(string $param, $value): SchemaInterface;
+	public function set( $param, $value);
 
-	public function addChild(string $name, array $data = []): SchemaInterface;
+	public function addChild( $name,  $data = []);
 
-	public function toArray(): array;
+	public function toArray();
 
-	public function getParent(): ?SchemaInterface;
+	public function getParent();
 
-	public function getRoot(): ?SchemaInterface;
+	public function getRoot();
 
-	public function __toString(): string;
+	public function __toString();
 
-	public function __get(string $name): SchemaInterface;
+	public function __get( $name);
 }

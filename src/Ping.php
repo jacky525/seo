@@ -29,7 +29,7 @@ class Ping implements SeoInterface
 	 *
 	 * @param array $append
 	 */
-	public function __construct(array $append = [])
+	public function __construct( $append = [])
 	{
 		if (empty($append) === false) {
 			$this->engines = array_unique(array_merge($this->engines, $append));
@@ -42,7 +42,7 @@ class Ping implements SeoInterface
 	 * @param  string $sitemapUrl
 	 * @return void
 	 */
-	public function send(string $sitemapUrl): void
+	public function send( $sitemapUrl)
 	{
 		foreach ($this->engines as $engine)
 		{
@@ -57,7 +57,7 @@ class Ping implements SeoInterface
 	 * @param  string $url
 	 * @return void
 	 */
-	public function inform(string $engine, string $url): void
+	public function inform( $engine,  $url)
 	{
 		$req = curl_init("{$engine}/ping?sitemap={$url}");
 		curl_setopt($req, CURLOPT_FOLLOWLOCATION, true);

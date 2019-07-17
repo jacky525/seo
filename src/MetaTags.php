@@ -36,7 +36,7 @@ class MetaTags implements MetaTagsInterface
 	 *
 	 * @param array $tags
 	 */
-	public function __construct(array $tags = [])
+	public function __construct( $tags = [])
 	{
 		foreach ($tags as $n => $v)
 		{
@@ -50,7 +50,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $url
 	 * @return MetaTagsInterface
 	 */
-	public function mobile(string $url): MetaTagsInterface
+	public function mobile( $url)
 	{
 		return $this->push(
 			'link', ['rel' => 'alternate', 'media' => 'only screen and (max-width: 640px)', 'href' => $url]
@@ -63,7 +63,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $url
 	 * @return MetaTagsInterface
 	 */
-	public function amp(string $url): MetaTagsInterface
+	public function amp( $url)
 	{
 		return $this->push('link', ['rel' => 'amphtml', 'href' => $url]);
 	}
@@ -74,7 +74,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $url
 	 * @return MetaTagsInterface
 	 */
-	public function canonical(string $url): MetaTagsInterface
+	public function canonical( $url)
 	{
 		$this->canonical = true;
 		return $this->push('link', ['rel' => 'canonical', 'href' => $url]);
@@ -86,7 +86,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $url
 	 * @return MetaTagsInterface
 	 */
-	public function url(string $url): MetaTagsInterface
+	public function url( $url)
 	{
 		if ($this->canonical === false) {
 
@@ -103,7 +103,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param string $value
 	 * @return MetaTagsInterface
 	 */
-	public function meta(string $name, string $value): MetaTagsInterface
+	public function meta( $name,  $value)
 	{
 		if (in_array($name, $this->supported)) {
 
@@ -120,7 +120,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param array  $attrs
 	 * @return MetaTagsInterface
 	 */
-	public function push(string $name, array $attrs): MetaTagsInterface
+	public function push( $name,  $attrs)
 	{
 		$this->tags[] = [$name, $attrs];
 
@@ -134,7 +134,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $value
 	 * @return MetaTagsInterface
 	 */
-	public function facebook(string $name, string $value): MetaTagsInterface
+	public function facebook( $name,  $value)
 	{
 		$this->og[] = ['meta', ['property' => "og:{$name}", 'content' => $value]];
 		return $this;
@@ -147,7 +147,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $value
 	 * @return MetaTagsInterface
 	 */
-	public function twitter(string $name, string $value): MetaTagsInterface
+	public function twitter( $name,  $value)
 	{
 		$this->tw[] = ['meta', ['property' => "twitter:{$name}", 'content' => $value]];
 		return $this;
@@ -159,7 +159,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $url
 	 * @return MetaTagsInterface
 	 */
-	public function shortlink(string $url): MetaTagsInterface
+	public function shortlink( $url)
 	{
 		return $this->push('link', ['rel' => 'shortlink', 'href' => $url]);
 	}
@@ -171,7 +171,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  string $card Twitter card
 	 * @return MetaTagsInterface
 	 */
-	public function image(string $url, string $card = 'summary_large_image'): MetaTagsInterface
+	public function image( $url,  $card = 'summary_large_image')
 	{
 		return $this->facebook('image', $url)->twitter('card', $card)->twitter('image', $url);
 	}
@@ -182,7 +182,7 @@ class MetaTags implements MetaTagsInterface
 	 * @param  array  $tags
 	 * @return string
 	 */
-	public function build(array $tags): string
+	public function build( $tags)
 	{
 		$out = '';
 
@@ -207,7 +207,7 @@ class MetaTags implements MetaTagsInterface
 	 *
 	 * @return string
 	 */
-	public function __toString(): string
+	public function __toString()
 	{
 		return $this->build($this->tags) . $this->build($this->tw) . $this->build($this->og);
 	}
