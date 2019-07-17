@@ -1,5 +1,4 @@
-# PHP SEO [![Build Status](https://img.shields.io/travis/melbahja/seo/master.svg)](https://travis-ci.org/melbahja/seo) ![PHP from Travis config](https://img.shields.io/travis/php-v/melbahja/seo.svg) [![Twitter](https://img.shields.io/twitter/url/https/github.com/melbahja/seo.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fmelbahja%2Fseo)
-
+# PHP SEO 
 Simple PHP library to help developers 🍻 do better on-page SEO optimization
 
 ### PHP SEO features:
