@@ -2,12 +2,11 @@
 namespace Melbahja\Seo;
 
 use Closure;
-use Melbahja\Seo\{
-	Sitemap\SitemapIndex,
-	Exceptions\SitemapException,
-	Interfaces\SitemapIndexInterface,
-	Interfaces\SitemapBuilderInterface
-};
+use Melbahja\Seo\Sitemap\SitemapIndex;
+use Melbahja\Seo\Exceptions\SitemapException;
+use Melbahja\Seo\Interfaces\SitemapIndexInterface;
+use Melbahja\Seo\Interfaces\SitemapBuilderInterface;
+
 
 /**
  * @package Melbahja\Seo
