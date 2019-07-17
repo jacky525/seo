@@ -208,7 +208,7 @@ class Sitemap implements SitemapIndexInterface
 
 		return $this->setBuilder($options['name'], $builder);
 	}
-
+    private static $instance = NULL;
 	/**
 	 * Sitemaps generator
 	 *
@@ -233,7 +233,34 @@ class Sitemap implements SitemapIndexInterface
 
 				throw new SitemapException("Sitemap name is required for {$builder}");
 			}
-				
+//            echo $this->domain."====".$args[0];
+//			var_dump($args[0]);
+//			exit;
+//
+//            $rConstruct = new \ReflectionMethod($builder, '__construct');
+//            $numParams      = $rConstruct->getNumberOfParameters();
+//            $arr = $args[0];
+//
+//            $tempArray = array_fill(0, $numParams, $this->domain);
+//            $arr    = ($arr + $tempArray);
+//
+//
+//            $reflection = new \ReflectionClass($builder);
+//            self::$instance = $reflection->newInstanceArgs($arr);
+
+
+//            $reflection = new \ReflectionClass($builder);
+//			$arr = $args[0];
+//            array_unshift($arr, $this->domain);
+//            self::$instance = $reflection->newInstanceArgs($arr);
+
+//            $reflection = new \ReflectionClass($builder($this->domain, $args[0]));
+//            self::$instance = $reflection->newInstanceArgs($args);
+//            $arr2 = $args;
+//            array_unshift($arr2, self::$instance);
+//            return call_user_func_array(array($this, "build"), $arr2);
+
+
 			return $this->build(new $builder($this->domain, $args[0]), ...$args);
 		}
 

@@ -19,11 +19,34 @@ class Factory
 	 * @param  array  $args
 	 * @return SeoInterface
 	 */
+
+    private static $instance = NULL;
+
 	public static function __callStatic( $class,  $args)
 	{
 		if (class_exists($class = __NAMESPACE__ . '\\' . ucfirst($class))) {
 
-			return new $class(...$args);
+            $reflection = new \ReflectionClass($class);
+//            $arguments = array_shift($args);
+            self::$instance = $reflection->newInstanceArgs($args);
+//            call_user_func_array(
+//                array($reflection, 'Factor'),
+//                $arguments
+//            );
+
+            return self::$instance;
+
+
+//            $reflect = new $class($args[0]);
+//            $arguments = array_shift($args);
+//            // TODO check if $functionName exists, otherwise we will get a loop
+//            call_user_func_array(
+//                array($reflect, $class),
+//                $arguments
+//            );
+//            return $reflect;
+
+//			return new $class(...$args);
 		}
 
 		throw new Exceptions\SeoException("The class {$class} is not exists");
