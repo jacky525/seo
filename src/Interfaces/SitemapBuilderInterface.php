@@ -13,19 +13,19 @@ interface SitemapBuilderInterface extends SeoInterface
 	/**
 	 * Images namespace
 	 */
-	public const IMAGE_NS = 'http://www.google.com/schemas/sitemap-image/1.1';
+	const IMAGE_NS = 'http://www.google.com/schemas/sitemap-image/1.1';
 
 
 	/**
 	 * Videos namespace
 	 */
-	public const VIDEO_NS = 'http://www.google.com/schemas/sitemap-video/1.1';
+	const VIDEO_NS = 'http://www.google.com/schemas/sitemap-video/1.1';
 
 	/**
 	 * News namespace
 	 * @var string
 	 */
-	public const NEWS_NS = 'https://www.google.com/schemas/sitemap-news/0.9';
+	const NEWS_NS = 'https://www.google.com/schemas/sitemap-news/0.9';
 
 	public function loc( $path);
 
