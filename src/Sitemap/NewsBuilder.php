@@ -1,10 +1,9 @@
 <?php
 namespace Melbahja\Seo\Sitemap;
 
-use Melbahja\Seo\{
-	Exceptions\SitemapException,
-	Interfaces\SitemapBuilderInterface
-};
+use Melbahja\Seo\Exceptions\SitemapException;
+use Melbahja\Seo\Interfaces\SitemapBuilderInterface;
+
 
 /**
  * @package Melbahja\Seo
