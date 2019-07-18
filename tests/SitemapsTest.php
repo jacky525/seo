@@ -18,7 +18,7 @@ class SitemapsTest extends TestCase
 
 	public function testSitemapBuilderWithNoSavePath()
 	{
-		$sitemap = Factory::sitemap('https://example.com', ['save_path' => '/tmp']);
+		$sitemap = Factory::sitemap('https://example.com', ['save_path' => '/tmp/']);
 
 		$posts = $sitemap->links(['name' => 'posts.xml'], function(SitemapBuilder $builder)
 		{
@@ -35,7 +35,7 @@ class SitemapsTest extends TestCase
 	{
 		$this->getExpectedException(SitemapException::CLASSNAME);
 
-		Factory::sitemap('https://example.com', ['save_path' => '/tmp'])->links(['name' => 't.xml'], function($builder)
+		Factory::sitemap('https://example.com', ['save_path' => '/tmp/'])->links(['name' => 't.xml'], function($builder)
 		{
 			$builder->loc('/about');
 
