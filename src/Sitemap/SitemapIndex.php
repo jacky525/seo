@@ -25,11 +25,11 @@ class SitemapIndex
 	 */
 	public static function build( $index,  $path,  $url,  &$maps)
 	{
-		if (is_writable($path = (($path[-1] !== '/') ? "{$path}/" : $path)) === false) {
+		if (is_writable($path = (((String) $path[-1] !== '/') ? "{$path}/" : $path)) === false) {
 
 			throw new SitemapException("The path {$path} is not writable");
 		
-		} elseif ($url[-1] !== '/') {
+		} elseif ((String) $url[-1] !== '/') {
 
 			$url .= '/';
 		}
