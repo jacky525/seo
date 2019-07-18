@@ -244,7 +244,8 @@ class SitemapsTest extends TestCase
 	{
 		$sitemap = Factory::sitemap('https://example.con',
 		[
-			'save_path' => sys_get_temp_dir(),
+//			'save_path' => sys_get_temp_dir(),
+			'save_path' => '/tmp/',
 			'sitemaps_url' => 'https://example.com/sitemaps'
 		]);
 
