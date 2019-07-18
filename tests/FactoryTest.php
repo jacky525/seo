@@ -17,39 +17,39 @@ class FactoryTest extends TestCase
 
 	public function testFactoryBuildExceptions()
 	{
-		$this->getExpectedException(SeoException::class);
+		$this->getExpectedException(SeoException::CLASSNAME);
 
 	}
 
 	public function testFactoryBuildSitemap()
 	{
-		$this->assertInstanceOf(SeoInterface::class, Factory::sitemap('https://example.com'));
+		$this->assertInstanceOf(SeoInterface::CLASSNAME, Factory::sitemap('https://example.com'));
 
-		$this->assertInstanceOf(SitemapInterface::class, Factory::sitemap('https://example.com'));
+		$this->assertInstanceOf(SitemapInterface::CLASSNAMENAME, Factory::sitemap('https://example.com'));
 
-		$this->assertInstanceOf(SitemapIndexInterface::class, Factory::sitemap('https://example.com'));
+		$this->assertInstanceOf(SitemapIndexInterface::CLASSNAMENAMENAME, Factory::sitemap('https://example.com'));
 	}
 
 
 	public function testFactoryBuildMetaTags()
 	{
-		$this->assertInstanceOf(SeoInterface::class, Factory::metaTags());
+		$this->assertInstanceOf(SeoInterface::CLASSNAME, Factory::metaTags());
 
-		$this->assertInstanceOf(MetaTagsInterface::class, Factory::metaTags());
+		$this->assertInstanceOf(MetaTagsInterface::CLASSNAMENAME, Factory::metaTags());
 	}
 
 
 	public function testFactorySchema()
 	{
-		$this->assertInstanceOf(SeoInterface::class, Factory::schema('organization'));
+		$this->assertInstanceOf(SeoInterface::CLASSNAME, Factory::schema('organization'));
 
-		$this->assertInstanceOf(SchemaInterface::class, Factory::schema('article'));
+		$this->assertInstanceOf(SchemaInterface::CLASSNAMENMAE, Factory::schema('article'));
 	}
 
 
 	public function testFactoryBuildPing()
 	{
-		$this->assertInstanceOf(SeoInterface::class, Factory::ping());
+		$this->assertInstanceOf(SeoInterface::CLASSNAME, Factory::ping());
 	}
 
 }
