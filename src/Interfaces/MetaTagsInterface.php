@@ -10,7 +10,9 @@ namespace Melbahja\Seo\Interfaces;
  */
 interface MetaTagsInterface extends SeoInterface
 {
-	public function __construct($tags = []);
+    const CLASSNAMENAME = __CLASS__;
+
+    public function __construct($tags = []);
 
 	public function meta($name, $value);
 

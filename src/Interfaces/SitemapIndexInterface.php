@@ -10,7 +10,9 @@ namespace Melbahja\Seo\Interfaces;
  */
 interface SitemapIndexInterface extends SitemapInterface
 {
-	public function __construct( $domain,  $options = null);
+    const CLASSNAMENAMENAME = __CLASS__;
+
+    public function __construct( $domain,  $options = null);
 
 	public function setOptions( $options);
 

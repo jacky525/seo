@@ -11,7 +11,9 @@ namespace Melbahja\Seo\Interfaces;
 interface SchemaInterface extends SeoInterface, \JsonSerializable
 {
 
-	public function __construct(
+    const CLASSNAMENMAE = __CLASS__;
+
+    public function __construct(
 		$type, $data = [], $parent = null, $root = null
 	);
 

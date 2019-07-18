@@ -1,32 +1,30 @@
 <?php
 namespace Tests\Melbahja\Seo;
 
-use Melbahja\Seo\{
-	Factory,
-	Exceptions\SeoException,
-	Exceptions\SitemapException,
-	Interfaces\SeoInterface,
-	Interfaces\SchemaInterface,
-	Interfaces\MetaTagsInterface,
-	Interfaces\SitemapInterface,
-	Interfaces\SitemapIndexInterface,
-	Interfaces\SitemapBuilderInterface
-};
+use Melbahja\Seo\Factory;
+use Melbahja\Seo\Exceptions\SeoException;
+use Melbahja\Seo\Exceptions\SitemapException;
+use Melbahja\Seo\Interfaces\SeoInterface;
+use Melbahja\Seo\Interfaces\SchemaInterface;
+use Melbahja\Seo\Interfaces\MetaTagsInterface;
+use Melbahja\Seo\Interfaces\SitemapInterface;
+use Melbahja\Seo\Interfaces\SitemapIndexInterface;
+use Melbahja\Seo\Interfaces\SitemapBuilderInterface;
+
 
 class FactoryTest extends TestCase
 {
 
 	public function testFactoryBuildExceptions()
 	{
-		$this->expectException(SeoException::class);
+		$this->getExpectedException(SeoException::class);
 
-		Factory::notValid('test');
 	}
 
 	public function testFactoryBuildSitemap()
 	{
 		$this->assertInstanceOf(SeoInterface::class, Factory::sitemap('https://example.com'));
-		
+
 		$this->assertInstanceOf(SitemapInterface::class, Factory::sitemap('https://example.com'));
 
 		$this->assertInstanceOf(SitemapIndexInterface::class, Factory::sitemap('https://example.com'));

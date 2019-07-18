@@ -8,4 +8,6 @@ namespace Melbahja\Seo\Interfaces;
  * @license MIT
  * @copyright 2019 Mohamed Elabhja 
  */
-interface SeoInterface { }
+interface SeoInterface {
+    const CLASSNAME = __CLASS__;
+}

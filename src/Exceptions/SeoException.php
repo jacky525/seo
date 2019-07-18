@@ -10,4 +10,6 @@ use Exception;
  * @license MIT
  * @copyright 2019 Mohamed Elabhja 
  */
-class SeoException extends Exception { }
+class SeoException extends Exception {
+    const CLASSNAME = __CLASS__;
+}
