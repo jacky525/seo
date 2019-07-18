@@ -23,7 +23,7 @@ class SitemapIndex
 	 * @param  array  &$maps
 	 * @return bool
 	 */
-	public static function build(string $index, string $path, string $url, array &$maps): bool
+	public static function build( $index,  $path,  $url,  &$maps)
 	{
 		if (is_writable($path = (($path[-1] !== '/') ? "{$path}/" : $path)) === false) {
 
