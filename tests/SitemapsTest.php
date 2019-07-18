@@ -38,6 +38,7 @@ class SitemapsTest extends TestCase
 		Factory::sitemap('https://example.com', ['save_path' => '/tmp/'])->links(['name' => 't.xml'], function($builder)
 		{
 			$builder->loc('/about');
+
 		})->save();
 	}
 
@@ -332,6 +333,7 @@ class SitemapsTest extends TestCase
 
 	public function sitemapProvider()
 	{
-		return Factory::sitemap('https://example.com', ['save_path' => sys_get_temp_dir()]);
+//		return Factory::sitemap('https://example.com', ['save_path' => sys_get_temp_dir()]);
+		return Factory::sitemap('https://example.com', ['save_path' => '/tmp/']);
 	}
 }
