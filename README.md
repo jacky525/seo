@@ -1,4 +1,4 @@
-# PHP SEO 
+# PHP SEO [![Build Status](https://travis-ci.org/jacky525/seo.svg?branch=master)](https://travis-ci.org/jacky525/seo)
 Simple PHP library to help developers 🍻 do better on-page SEO optimization
 
 ### PHP SEO features:
