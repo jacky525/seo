@@ -38,7 +38,6 @@ class SitemapsTest extends TestCase
 		Factory::sitemap('https://example.com', ['save_path' => '/tmp/'])->links(['name' => 't.xml'], function($builder)
 		{
 			$builder->loc('/about');
-
 		})->save();
 	}
 
