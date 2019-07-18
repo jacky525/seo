@@ -28,7 +28,7 @@ class NewsBuilder extends SitemapBuilder
 	 * @param array|null $options
 	 * @param string     $ns
 	 */
-	public function __construct(string $domain, ?array $options = null, string $ns = '')
+	public function __construct( $domain,  $options = null,  $ns = '')
 	{
 		parent::__construct($domain, $options, $ns .' xmlns:news="'. static::NEWS_NS . '"');
 	}
@@ -41,7 +41,7 @@ class NewsBuilder extends SitemapBuilder
 	 * @param string $lang
 	 * @return SitemapBuilderInterface
 	 */
-	public function setPublication(string $name, string $lang): SitemapBuilderInterface
+	public function setPublication( $name,  $lang)
 	{
 		$this->publication = 
 		[
@@ -57,7 +57,7 @@ class NewsBuilder extends SitemapBuilder
 	 *
 	 * @return array
 	 */
-	public function getPublication(): array
+	public function getPublication()
 	{
 		return $this->publication;
 	}
@@ -69,7 +69,7 @@ class NewsBuilder extends SitemapBuilder
 	 * @param  array  $options
 	 * @return SitemapBuilderInterface
 	 */
-	public function news(array $options): SitemapBuilderInterface
+	public function news( $options)
 	{
 		$options['name'] = isset($options['name']) ?$options['name'] : $this->publication['name'];
 		$options['language'] = isset($options['language']) ?$options['language']: $this->publication['lang'];
